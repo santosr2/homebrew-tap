@@ -1,11 +1,11 @@
 # typed: false
 # frozen_string_literal: true
 
-# Hand-maintained, unlike everything else in this tap. TerraTidy is published as
-# a cask from v0.3.1 onward; this formula exists only so that the old
-# `brew install santosr2/tap/terratidy` fails with a pointer to the cask instead
-# of a bare "no available formula". It is frozen at the last formula release and
-# is deliberately not installable, so the stale version below can never be used.
+# Hand-maintained, unlike everything else in this tap. TerraTidy is distributed
+# as a cask; v0.3.0 below was the last release published as a formula. This file
+# exists only so that the old `brew install santosr2/tap/terratidy` reports the
+# move instead of failing with a bare "no available formula". It is deliberately
+# not installable, so the frozen version below can never be used.
 #
 # Delete this once nobody is reaching for the formula name any more.
 class Terratidy < Formula
