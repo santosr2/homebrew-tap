@@ -1,0 +1,60 @@
+# typed: false
+# frozen_string_literal: true
+
+# Hand-maintained, unlike everything else in this tap. TerraTidy is published as
+# a cask from v0.3.1 onward; this formula exists only so that the old
+# `brew install santosr2/tap/terratidy` fails with a pointer to the cask instead
+# of a bare "no available formula". It is frozen at the last formula release and
+# is deliberately not installable, so the stale version below can never be used.
+#
+# Delete this once nobody is reaching for the formula name any more.
+class Terratidy < Formula
+  desc "Terraform/Terragrunt quality platform"
+  homepage "https://github.com/santosr2/TerraTidy"
+  version "0.3.0"
+  license "MIT"
+
+  disable! date: "2026-09-10",
+           because: "it is now distributed as a cask",
+           replacement_cask: "santosr2/tap/terratidy"
+
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/santosr2/terratidy/releases/download/v0.3.0/terratidy-0.3.0-darwin-amd64.tar.gz"
+      sha256 "d1e446eb6e38f1ae0359dcb3ed15a12cf10843b179e10e869ae9049a76634a3b"
+
+      define_method(:install) do
+        bin.install "terratidy"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/santosr2/terratidy/releases/download/v0.3.0/terratidy-0.3.0-darwin-arm64.tar.gz"
+      sha256 "dd112f8d29509fd373d6904743f1911549a18173c01faad56722bc0c7e745e79"
+
+      define_method(:install) do
+        bin.install "terratidy"
+      end
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/santosr2/terratidy/releases/download/v0.3.0/terratidy-0.3.0-linux-amd64.tar.gz"
+      sha256 "403a93f67c477856f1b0e14ec084cef1519818504972bdc3c08e0f730eaf1d16"
+      define_method(:install) do
+        bin.install "terratidy"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/santosr2/terratidy/releases/download/v0.3.0/terratidy-0.3.0-linux-arm64.tar.gz"
+      sha256 "464762494ae12795a11f7c446e9add2678c1fc0fd52cbeae6907eaadde497bca"
+      define_method(:install) do
+        bin.install "terratidy"
+      end
+    end
+  end
+
+  test do
+    system "#{bin}/terratidy version"
+  end
+end
