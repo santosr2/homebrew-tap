@@ -1,52 +1,52 @@
 # homebrew-tap
 
-Homebrew tap for [TerraTidy](https://github.com/santosr2/TerraTidy), a single-binary
-Terraform/Terragrunt quality platform.
+Homebrew tap for [santosr2](https://github.com/santosr2)'s projects. One tap,
+however many projects end up needing one.
 
 ## Install
 
 ```sh
-brew install santosr2/tap/terratidy
-```
-
-Or add the tap first, then install:
-
-```sh
 brew tap santosr2/tap
-brew install terratidy
 ```
 
-## Upgrade
+Then install anything in it. You can also skip the tap step and use the fully
+qualified name directly.
+
+## Available
+
+| Project | Install | Type |
+| --- | --- | --- |
+| [TerraTidy](https://github.com/santosr2/TerraTidy) — Terraform/Terragrunt quality platform | `brew install --cask santosr2/tap/terratidy` | Cask |
+
+## Upgrading and removing
 
 ```sh
-brew update && brew upgrade terratidy
+brew update && brew upgrade <name>
+brew uninstall <name>
+brew untap santosr2/tap      # removes the tap itself
 ```
 
-## Uninstall
+## How this repository is maintained
 
-```sh
-brew uninstall terratidy
-brew untap santosr2/tap
-```
+**Everything under `Casks/` and `Formula/` is generated.** Each project's own
+release pipeline writes its file here when it publishes a release, so edits made
+directly in this repository are overwritten by the next release of that project.
 
-## What lives here
+If something is wrong with a cask or formula, fix it in the project that
+generates it — for TerraTidy that is `.goreleaser.yml` — not here.
 
-`Casks/` holds the cask definitions, which install the pre-built binaries published
-with each TerraTidy release. Homebrew on Linux is supported alongside macOS.
+Casks are preferred over formulae: they install pre-built release binaries and
+work on both macOS and Linux, so there is no need to compile from source.
 
-**These files are generated.** Every release, GoReleaser writes the cask from the
-TerraTidy repository as part of publishing. Editing them here by hand will be
-overwritten by the next release. Fixes belong in `.goreleaser.yml` upstream.
-
-Only stable releases are published here; pre-releases (`-alpha`, `-beta`, `-rc`) are
-available from the [GitHub releases page](https://github.com/santosr2/TerraTidy/releases)
-instead.
+Only stable releases are published. Pre-releases (`-alpha`, `-beta`, `-rc`) are
+available from each project's GitHub releases page instead.
 
 ## Issues
 
-Report problems against the main repository:
-[santosr2/TerraTidy/issues](https://github.com/santosr2/TerraTidy/issues).
+Report problems against the project the cask belongs to, not against this
+repository. Its contents are generated, so a bug here is almost always a bug
+there.
 
 ## License
 
-MIT, matching TerraTidy itself. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
