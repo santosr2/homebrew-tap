@@ -15,7 +15,7 @@ class Terratidy < Formula
   license "MIT"
 
   disable! date: "2026-09-10",
-           because: "it is now distributed as a cask",
+           because: "is now distributed as a cask",
            replacement_cask: "santosr2/tap/terratidy"
 
   on_macos do
