@@ -5,12 +5,24 @@ however many projects end up needing one.
 
 ## Install
 
+Install by fully qualified name. There is no separate `brew tap` step:
+
 ```sh
-brew tap santosr2/tap
+brew install --cask santosr2/tap/<name>
 ```
 
-Then install anything in it. You can also skip the tap step and use the fully
-qualified name directly.
+Since Homebrew 6.0.0 a non-official tap has to be trusted before anything in it
+will load, and `brew tap` on its own tries to load every item and fails. Using
+the fully qualified name grants trust to just the thing you are installing.
+
+If you would rather use short names, trust the whole tap once:
+
+```sh
+brew trust santosr2/tap
+```
+
+That accepts every formula and cask it ships now and in future, so prefer the
+per-item form unless this is a tap you administer.
 
 ## Available
 
