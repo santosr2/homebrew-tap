@@ -14,9 +14,17 @@ qualified name directly.
 
 ## Available
 
-| Project | Install | Type |
+Nothing here is installable yet. Casks are written by each project's release
+pipeline, so a project appears in this tap only once it has cut a release since
+being wired up.
+
+| Project | Install | Status |
 | --- | --- | --- |
-| [TerraTidy](https://github.com/santosr2/TerraTidy) — Terraform/Terragrunt quality platform | `brew install --cask santosr2/tap/terratidy` | Cask |
+| [TerraTidy](https://github.com/santosr2/TerraTidy) — Terraform/Terragrunt quality platform | `brew install --cask santosr2/tap/terratidy` | Lands with its next release |
+
+Until then, install TerraTidy from its
+[releases page](https://github.com/santosr2/TerraTidy/releases) or by any of the
+other methods in its [README](https://github.com/santosr2/TerraTidy#installation).
 
 ## Upgrading and removing
 
