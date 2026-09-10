@@ -28,9 +28,15 @@ brew untap santosr2/tap      # removes the tap itself
 
 ## How this repository is maintained
 
-**Everything under `Casks/` and `Formula/` is generated.** Each project's own
-release pipeline writes its file here when it publishes a release, so edits made
-directly in this repository are overwritten by the next release of that project.
+**Almost everything under `Casks/` and `Formula/` is generated.** Each project's
+own release pipeline writes its file here when it publishes a release, so edits
+made directly in this repository are overwritten by the next release of that
+project.
+
+The one exception is `Formula/terratidy.rb`, which is hand-written and disabled.
+TerraTidy moved from a formula to a cask, and that file exists only so the old
+`brew install santosr2/tap/terratidy` reports the move instead of failing with
+"no available formula". It cannot be installed and is never regenerated.
 
 If something is wrong with a cask or formula, fix it in the project that
 generates it — for TerraTidy that is `.goreleaser.yml` — not here.
